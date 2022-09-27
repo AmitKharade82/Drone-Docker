@@ -1,0 +1,7 @@
+FROM ubuntu:22.04
+RUN apt update && apt dist-upgrade -y && apt autoremove
+RUN apt install sudo
+RUN DEBIAN_FRONTEND=noninteractive apt install -y tzdata
+RUN sudo apt update
+RUN sudo apt install libopencv-dev python3-opencv -y
+RUN python3 -c "import cv2; print(cv2.__version__)"
